@@ -7,7 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // Create Board
   function createBoard() {
     // Get Shuffled Game Array w/ Random Bombs
-    const bombsArray = Array(bombAmount);
+    const bombsArray = Array(bombAmount).fill('bomb');
+    const emptyArray = Array(width * width - bombAmount).fill('valid');
+    console.log(bombsArray);
+    console.log(emptyArray);
 
     for (let i = 0; i < width * width; i++) {
       const square = document.createElement('div');
