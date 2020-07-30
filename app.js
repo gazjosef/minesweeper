@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const emptyArray = Array(width * width - bombAmount).fill('valid');
     console.log(bombsArray);
     console.log(emptyArray);
+    const gameArray = emptyArray.concat(bombsArray);
+    console.log(gameArray);
 
     for (let i = 0; i < width * width; i++) {
       const square = document.createElement('div');
