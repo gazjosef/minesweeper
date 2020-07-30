@@ -1,4 +1,4 @@
-document.addEventListener('DomContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
   const grid = document.querySelector('.grid');
   let width = 10;
   let squares = [];
@@ -9,6 +9,9 @@ document.addEventListener('DomContentLoaded', () => {
       const square = document.createElement('div');
       square.setAttribute('id', i);
       grid.appendChild(square);
+      squares.push(square);
     }
   }
+
+  createBoard();
 });
