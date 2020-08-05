@@ -23,11 +23,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Add Numbers
     for (let i = 0; i < squares.length; i++) {
       const isLeftEdge = i % width === 0;
-      const isRightEdge = i === width - 1;
+      const isRightEdge = i % width === width - 1;
 
       if (squares[i].classList.contains('valid')) {
-        if (i > 0 && !isLeftEdge && squares[i - 1].classList.contains('bomb')) {
-        }
+        if (i > 0 && !isLeftEdge && squares[i - 1].classList.contains('bomb'))
+          total++;
       }
     }
   }
