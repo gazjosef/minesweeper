@@ -18,6 +18,11 @@ document.addEventListener('DOMContentLoaded', () => {
       square.classList.add(shuffleArray[i]);
       grid.appendChild(square);
       squares.push(square);
+
+      // Normal Click
+      square.addEventListener('click', function (e) {
+        click(square);
+      });
     }
 
     // Add Numbers
@@ -35,10 +40,38 @@ document.addEventListener('DOMContentLoaded', () => {
           squares[i + 1 - width].classList.contains('bomb')
         )
           total++;
+        if (i > 10 && squares[i - width].classList.contains('bomb')) total++;
+        if (
+          i > 11 &&
+          !isLeftEdge &&
+          squares[i - 1 - width].classList.contains('bomb')
+        )
+          total++;
+        if (i < 98 && !isRightEdge && squares[i + 1].classList.contains('bomb'))
+          total++;
+        if (
+          i < 90 &&
+          !isLeftEdge &&
+          squares[i - 1 + width].classList.contains('bomb')
+        )
+          total++;
+        if (
+          i < 88 &&
+          !isRightEdge &&
+          squares[i + 1 + width].classList.contains('bomb')
+        )
+          total++;
+        if (i < 89 && squares[i + width].classList.contains('bomb')) total++;
         squares[i].setAttribute('data', total);
-        console.log(squares[i]);
       }
     }
   }
   createBoard();
+
+  // Click On Square
+  function click(square) {
+    if (square.classList.contains('bomb')) {
+      alert('Game Over');
+    }
+  }
 });
