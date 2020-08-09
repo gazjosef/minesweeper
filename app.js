@@ -74,11 +74,12 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log('Game Over');
     } else {
       let total = square.getAttribute('data');
-      if (total !== 0) {
+      if (total != 0) {
         square.classList.add('checked');
         square.innerHTML = total;
         return;
       }
+      square.classList.add('checked');
     }
   }
 });
