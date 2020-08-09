@@ -84,6 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
         square.classList.add('flag');
         square.innerHTML = '🚩';
         flags++;
+        checkForWin();
       } else {
         square.classList.remove('flag');
         square.innerHTML = '';
@@ -182,5 +183,21 @@ document.addEventListener('DOMContentLoaded', () => {
         square.innerHTML = '💣';
       }
     });
+  }
+
+  // Check For Win
+  function checkForWin() {
+    let matches = 0;
+    for (let i = 0; i < squares.length; i++) {
+      if (
+        squares[i].classList.contains('flag') &&
+        squares[i].classList.contains('bomb')
+      ) {
+        matches++;
+      }
+      if (matches === bombAmount) {
+        console.log('You Win!');
+      }
+    }
   }
 });
