@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
     )
       return;
     if (square.classList.contains('bomb')) {
-      console.log('Game Over');
+      gameOver(square);
     } else {
       let total = square.getAttribute('data');
       if (total != 0) {
@@ -146,5 +146,18 @@ document.addEventListener('DOMContentLoaded', () => {
         click(newSquare);
       }
     }, 10);
+  }
+
+  // Game Over
+  function gameOver() {
+    console.log('BOOM! Game Over!');
+    isGameOver = true;
+
+    // Show ALL The Bombs
+    squares.forEach((square) => {
+      if (square.classList.contains('bomb')) {
+        square.innerHTML = '💣';
+      }
+    });
   }
 });
